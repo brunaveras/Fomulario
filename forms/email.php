@@ -1,37 +1,17 @@
 <?php
 
+include("conexao.php");
 
-if(isset($_POST['email']) && !empty($_POST['email'])) {
-
-$nome = addslashes($_POST['nome']);
-$telefone = addslashes($_POST['telefone']);
-$email = addslashes($_POST['email']);
-$mensagem = addslashes($_POST['mensagem']);
-
-$to = "verasbruna53@gmail.com";
-$subject = "Contato";
-$body = "Nome: "
+$nome= filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+$telefone=filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_NUMBER_INT);
+$email=filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
 
-$to = "verasbruna53@gmail.com";
-$subject = "Solicitação";
-$body = "Nome: ".$nome. "\r\n".
-        "Telefone: ".$telefone. "\r\n".
-        "E-mail: ".$email. "\r\n".
-        "Mensagem: ".$mensagem;
-$header = "From: brunaingri@live.com" . "\r\n".
-        ."Reply-To:".$email."\r\n".
-        ."X-Mailer:PHP/".phpversion();
-        
-if(mail($to,$subject,$body,$header)){
+//echo "Nome:".$nome."<br/>Telefone: ".$telefone. "</br>";
 
-    echo("E-mail enviado com sucesso!")
+$result_usuario = "INSERT INTO usuarios_form (nome, telefone, email, created) VALUES ('$nome', '$telefone', '$email', NOW())";
+$resultado_usuario = mysqli_query($conn, $result_usuario);
 
-}else{
-    echo("O e-mail não pode ser enviado.");
-}
-
-
-}
+if(mysqli_insert_id($conn))
 
 ?>

@@ -6,32 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Contato</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/0005c4fe6f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="titulo">
-        <h1>FORMULÁRIO DE CONTATO</h1>
-    </div>
+    <div>
+        <h1>ENTRE EM CONTATO CONOSCO</h1>
 
+        <div class="titulo">
 
-    <div class="contato">    
+            <!-- INICIO DO FORMULÁRIO--> 
+
             <form class="form" method="post" action="./email.php">
-                <label>Nome
-                    <input type="text" class="estilo" name="nome" id="nome">
-                </label>
 
-                <label>Telefone
-                   <input type="text" class="estilo" name="telefone" id="telefone">
-                </label>
+                <label for="nome">Nome</label>
+                    <div class="input">
+                        <i class="fas fa-user-astronaut"></i>
+                        <input placeholder="Nome" type="text" name="nome" id="nome">
+                    </div>
 
-                <label>E-mail
-                    <input type="email" class="estilo" name="email" id="email">
-                </label>
+                <label for="telefone">Telefone</label>
+                    <div class="input">
+                        <i class="fas fa-mobile-alt"></i>
+                        <input placeholder="(xx)xxxxx-xxxx" type="text" name="telefone" id="telefone">
+                </div>
+
+
+                <label for="email">E-mail</label>
+                    <div class="input">
+                        <i class="fas fa-envelope"></i>
+                        <input placeholder="email@email.com" type="email" name="email" id="email">
+                    </div>
                 
-
-                <input type="submit" value= "Enviar">
-                <input type="reset" value= "Limpar">
+                <div class="botao">
+                    <button type="submit">Enviar</button>
+                </div>
             </form>
+            <!-- FIM DO FORMULÁRIO-->
+        </div>        
     </div>
+
 </body>
 </html>
